@@ -28,7 +28,6 @@
     box-shadow: 9px 16px 23px 6px rgb(126 178 61 / 26%);
 }
 .grocery__btn:hover{
-    padding: 12px 32px;
     background-color: #fff;
     color: #7eb23d;
 }

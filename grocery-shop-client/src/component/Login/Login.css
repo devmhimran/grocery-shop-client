@@ -1,0 +1,42 @@
+.login__main{
+    /* padding: 100px 0; */
+    margin: 80px 0;
+}
+.login__form__card{
+    width: 450px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 25px !important;
+    font-family: 'Poppins', sans-serif;
+}
+.input__form{
+    padding: 10px 0;
+}
+.input__form input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7eb23d;
+    border-radius: 25px;
+}
+.input__form p{
+    margin-bottom: 10px;
+}
+.login__btn{
+    padding: 8px 30px;
+    background-color: #7eb23d;
+    color: #fff;
+    border: 1px solid #7eb23d;
+    font-size: 18px;
+    border-radius: 25px;
+    transition: 0.4s;
+    box-shadow: 9px 16px 23px 6px rgb(126 178 61 / 26%);
+}
+.login__btn:hover{
+    background-color: #fff;
+    color: #7eb23d;
+}
+.divider span{
+    background-color: #d3d3d3;
+    height: 1px;
+    width: 200px;
+}
