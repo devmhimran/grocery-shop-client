@@ -1,11 +1,14 @@
+p{
+    margin: 0 !important;
+}
 .footer__logo{
     width: 180px;
 }
-p{
-    margin: 0;
-}
 .footer__main{
-    padding: 60px;
+    background-color: #e7f0d7;
+}
+.footer__detail{
+    padding: 50px;
 }
 .footer__detail__one p{
     font-size: 16px;
@@ -69,4 +72,9 @@ p{
 .social__icon:hover{
     background-color: #7eb23d;
     color: #fff;
+}
+.copyright__text{
+    background-color: #7eb23d;
+    color: #fff;
+    padding: 18px 0;
 }
