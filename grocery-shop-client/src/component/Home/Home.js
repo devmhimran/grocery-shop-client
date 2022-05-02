@@ -66,7 +66,7 @@ const Home = () => {
                             <p>No man can live without food, and for our daily food, buying grocery items is a must. Buying fish, vegetables, eggs, meat, beef, etc. is a must for cooking regular food. We all have to go to local markets to buy these food and grocery items. In this age of business people do not find enough time to buy foods and groceries from local markets.
 
                                 So either they choose their servants or go for super shops. Servants often fail to purchase quality products and shopping in super shops is very expensive.</p>
-                                <button className='grocery__btn'>Contact Us</button>
+                                <button className='grocery__btn mt-4'>Contact Us</button>
                         </div>
                         
                     </div>
