@@ -15,7 +15,7 @@ const Home = () => {
                         <div className="hero__detail">
                             <h1>Welcome to Grocery Find your Favorite Food</h1>
                             <p>Food is the ultimate pacifier. I feel like I can forgive anyone after a scrumptious meal.</p>
-                            <button className='grocery__btn'>Contact Us</button>
+                            <button className='grocery__btn mt-4'>Contact Us</button>
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12">
