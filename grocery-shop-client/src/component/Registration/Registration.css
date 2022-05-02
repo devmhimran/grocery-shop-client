@@ -1,0 +1,11 @@
+.registration__main{
+    /* padding: 100px 0; */
+    margin: 80px 0;
+}
+.registration__form__card{
+    width: 450px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 25px !important;
+    font-family: 'Poppins', sans-serif;
+}

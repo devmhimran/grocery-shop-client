@@ -9,6 +9,7 @@ import MyItem from './component/MyItem/MyItem';
 import Blog from './component/Blog/Blog';
 import Login from './component/Login/Login';
 import Footer from './component/Footer/Footer';
+import Registration from './component/Registration/Registration';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
          <Route path='/myitem' element={<MyItem></MyItem>}></Route>
          <Route path='/blog' element={<Blog></Blog>}></Route>
          <Route path='/login' element={<Login></Login>}></Route>
+         <Route path='/registration' element={<Registration></Registration>}></Route>
          <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
       </Routes> 
       <Footer></Footer>
