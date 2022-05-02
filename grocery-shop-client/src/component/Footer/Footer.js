@@ -47,7 +47,7 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-6 col-sm-12">
                         <div className="social__media">
                             <h3>Social</h3>
-                            <a href="#"><span className='social__icon'><BsFacebook></BsFacebook></span></a>
+                            <a href="https://www.facebook.com/programmingHero"><span className='social__icon'><BsFacebook></BsFacebook></span></a>
                             <a href="https://www.youtube.com/c/ProgrammingHero"><span className='social__icon'><BsYoutube></BsYoutube></span></a>
                             <a href="https://www.instagram.com/programminghero/"><span className='social__icon'><BsInstagram></BsInstagram></span></a>
                         </div>

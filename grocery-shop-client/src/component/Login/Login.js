@@ -26,7 +26,7 @@ const Login = () => {
                             <span>New on Grocery?</span> <Link to='/registration'>Please Register</Link>
                         </div>
                         <div className="forget__password__link mt-2">
-                            <span>Forget Password?</span> <Link to='/forgotpassword'>New one</Link>
+                            <span>Forget Password?</span> <Link to='/forgetpassword'>New one</Link>
                         </div>
                         <div className="divider d-flex align-items-center justify-content-center mt-3">
                             <span></span>
