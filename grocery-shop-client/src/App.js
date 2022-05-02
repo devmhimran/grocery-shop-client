@@ -8,6 +8,7 @@ import AddItem from './component/AddItem/AddItem';
 import MyItem from './component/MyItem/MyItem';
 import Blog from './component/Blog/Blog';
 import Login from './component/Login/Login';
+import Footer from './component/Footer/Footer';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
          <Route path='/login' element={<Login></Login>}></Route>
          <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
       </Routes> 
+      <Footer></Footer>
     </div>
   );
 }
