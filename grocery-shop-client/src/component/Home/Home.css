@@ -1,5 +1,8 @@
+.hero__banner{
+    padding: 80px;
+}
 .hero__image{
-    width: 700px;    
+    width: 100%;   
 }
 .hero__detail h1{
     font-size: 60px;
@@ -28,4 +31,27 @@
     padding: 12px 32px;
     background-color: #fff;
     color: #7eb23d;
+}
+.site__info{
+    padding: 60px;
+}
+.site__info__detail{
+    margin: 25px;
+    padding: 30px;
+    box-shadow: 0px 0px 90px 20px rgb(136 179 55 / 20%);
+    border-radius: 25px;
+}
+.site__info__icon{
+    font-size: 42px;
+    color: #7eb23d;
+}
+.site__info__detail h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.site__info__detail p{
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: #54595f;
 }
