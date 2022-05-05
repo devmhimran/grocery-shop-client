@@ -3,7 +3,14 @@ import {Link} from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import './HeaderNav.css';
 import groceryLogo from '../../assets/img/gorcery-logo.png';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
 const HeaderNav = () => {
+    const [user] = useAuthState(auth);
+    const logOut = ()=>{
+        signOut(auth);
+    }
     return (
         <Navbar className='navbar__main py-3' expand="lg">
             <Container>
@@ -17,7 +24,14 @@ const HeaderNav = () => {
                         <Nav.Link as={Link} to="/additem">Add Item</Nav.Link>
                         <Nav.Link as={Link} to="/myitem">My Item</Nav.Link>
                         <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
-                        <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                        {
+                            user ? 
+                            <>
+                                <Nav.Link onClick={logOut}>logout</Nav.Link>
+                            </>:
+                            <Nav.Link as={Link} to="/login">login</Nav.Link>
+                        }
+                       
                     </Nav>
                 </Navbar.Collapse>
             </Container>
