@@ -1,32 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FcGoogle } from 'react-icons/fc';
-import { ImFacebook2 } from 'react-icons/im';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Registration.css';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 const Registration = () => {
+    const [errorMsg, setError] = useState('');
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+      console.log(user);
+      const [sendEmailVerification, sending] = useSendEmailVerification(
+        auth
+      );
+      
+    const handleRegistration = async(e) =>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const number = e.target.number.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const confirmPassword = e.target.confirmPassword.value;
+        
+        if(password !== confirmPassword){
+            const errorMsg = 'Password not matched';
+            setError(errorMsg);
+        }
+        await createUserWithEmailAndPassword( email, password);
+        await sendEmailVerification();
+        // console.log(name);
+    }
     return (
         <div className='registration__main'>
             <div className="container">
                 <div className="card registration__form__card">
                     <div className="card-body">
                         <h2>Sign up</h2>
-                        <form>
+                        <form onSubmit={handleRegistration}>
                             <div className="input__form">
                                 <p className='py-2'>Enter Name</p>
-                                <input type="text" name="email" placeholder='Enter Your Name' />
+                                <input type="text" name="name" placeholder='Enter Your Name' required/>
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Enter Number</p>
-                                <input type="text" name="email" placeholder='Enter Your Number' />
+                                <input type="text" name="number" placeholder='Enter Your Number' required/>
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Enter Email</p>
-                                <input type="email" name="email" placeholder='Enter Your Email' />
+                                <input type="email" name="email" placeholder='Enter Your Email' required/>
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Enter Password</p>
-                                <input type="password" name="password" placeholder='Enter Your Password' />
+                                <input type="password" name="password" placeholder='Enter Your Password' required/>
+                            </div>
+                            <div className="input__form">
+                                <p className='py-2'>Confirm Password</p>
+                                <input type="password" name="confirmPassword" placeholder='Enter Your Password' required/>
+                                <small className='text-danger'>{errorMsg}</small>
                             </div>
                             <button className='login__btn mt-3'>Sign up</button>
                         </form>
@@ -38,10 +72,7 @@ const Registration = () => {
                             <p className='mx-3'>or</p>
                             <span></span>
                         </div>
-                        <div className="social__login d-flex justify-content-between">
-                            <button className='google__signin'><span><FcGoogle></FcGoogle></span> Google</button>
-                            <button className='facebook__signin'><span><ImFacebook2></ImFacebook2></span> Facebook</button>
-                        </div>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
