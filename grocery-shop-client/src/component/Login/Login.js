@@ -1,13 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import auth from '../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const Login = () => {
-    const handleLogin = (e) =>{
-        // e.pre
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    let loginError;
+    console.log(user);
+    if (error) {
+        loginError = error.message;
+    }
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
+    }
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(email, password);
     }
     return (
         <div className='login__main'>
@@ -23,6 +40,7 @@ const Login = () => {
                             <div className="input__form">
                                 <p className='py-2'>Enter Password</p>
                                 <input type="password" name="password" placeholder='Enter Your Password' />
+                                <small className='text-danger'>{loginError}</small>
                             </div>
                             <button className='login__btn mt-3'>Sign in</button>
                         </form>

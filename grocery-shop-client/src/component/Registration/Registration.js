@@ -18,6 +18,7 @@ const Registration = () => {
         loginError = error.message;
     }
     let from = location.state?.from?.pathname || "/login";
+    // console.log(from);
     if(user){
         navigate(from, {replace:true});
     }
