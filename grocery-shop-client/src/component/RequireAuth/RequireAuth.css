@@ -1,0 +1,31 @@
+.emailVerifySection {
+    padding: 100px 0;
+}
+
+.card {
+    border: 1px dashed grey !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.emailVerifySection p {
+    font-size: 20px;
+    line-height: 36px;
+}
+
+.resendBtn {
+    cursor: pointer;
+    padding: 10px 32px;
+    background-color: #7eb23d;
+    color: #fff;
+    border: 1px solid #7eb23d;
+    font-size: 18px;
+    border-radius: 25px;
+    transition: 0.4s;
+    box-shadow: 9px 16px 23px 6px rgb(126 178 61 / 26%);
+    margin-top: 15px;
+}
+
+.resendBtn:hover {
+    background-color: #fff;
+    color: #7eb23d;
+}
