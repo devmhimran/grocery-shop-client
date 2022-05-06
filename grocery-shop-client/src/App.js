@@ -17,23 +17,29 @@ function App() {
   return (
     <div className="App">
       <HeaderNav></HeaderNav>
-       <Routes>
-         <Route path='/' element={<Home></Home>}></Route>
-         <Route path='/home' element={<Home></Home>}></Route>
-         <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
-         <Route path='/manageitems' element={<ManageItem></ManageItem>}></Route>
-         <Route path='/additem' element={<AddItem></AddItem>}></Route>
-         <Route path='/myitem' element={
-           <RequireAuth>
-             <MyItem></MyItem>
-           </RequireAuth>
-         }></Route>
-         <Route path='/blog' element={<Blog></Blog>}></Route>
-         <Route path='/login' element={<Login></Login>}></Route>
-         <Route path='/registration' element={<Registration></Registration>}></Route>
-         <Route path='/forgetpassword' element={<ForgotPassword></ForgotPassword>}></Route>
-         <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
-      </Routes> 
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/manageitems' element={<RequireAuth>
+          <ManageItem></ManageItem>
+        </RequireAuth>}></Route>
+        <Route path='/additem' element={
+          <RequireAuth>
+            <AddItem></AddItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/myitem' element={
+          <RequireAuth>
+            <MyItem></MyItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/registration' element={<Registration></Registration>}></Route>
+        <Route path='/forgetpassword' element={<ForgotPassword></ForgotPassword>}></Route>
+        <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
+      </Routes>
       <Footer></Footer>
     </div>
   );
