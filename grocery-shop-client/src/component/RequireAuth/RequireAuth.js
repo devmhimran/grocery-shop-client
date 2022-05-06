@@ -4,6 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../firebase.init';
 import Loading from '../Loading/Loading';
 import './RequireAuth.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
@@ -23,14 +24,15 @@ const RequireAuth = ({ children }) => {
                     <p>Please verify your email</p>
                     <button className='resendBtn' onClick={async () => {
                         await sendEmailVerification();
-                        alert('Sent email');
+                        toast.success('Sent Email');
                     }}>Resend</button>
                 </div>
             </div>
+            <Toaster position="top-center" reverseOrder={false} />
         </div>;
     }
     return children;
-    
+
 };
 
 export default RequireAuth;
