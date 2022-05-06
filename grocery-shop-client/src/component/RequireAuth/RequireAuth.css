@@ -2,7 +2,7 @@
     padding: 100px 0;
 }
 
-.card {
+.email__verification__card {
     border: 1px dashed grey !important;
     font-family: 'Poppins', sans-serif;
 }

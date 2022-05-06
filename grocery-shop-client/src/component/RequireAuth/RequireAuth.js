@@ -17,7 +17,7 @@ const RequireAuth = ({ children }) => {
     }
     if (!user.emailVerified) {
         return <div className='container text-center emailVerifySection'>
-            <div className="card w-50 mx-auto">
+            <div className="card w-50 mx-auto email__verification__card">
                 <div className="card-body py-5">
                     <p>Your email is not verified</p>
                     <p>Please verify your email</p>
