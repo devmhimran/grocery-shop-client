@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD8y_i5EUzCxljPWu8nx8oxWkPf3O6JmIc",
-  authDomain: "grocery-shop-4df4d.firebaseapp.com",
-  projectId: "grocery-shop-4df4d",
-  storageBucket: "grocery-shop-4df4d.appspot.com",
-  messagingSenderId: "1098945474260",
-  appId: "1:1098945474260:web:ff1190cfb116b4843f9541"
+  apiKey:process.env.REACT_APP_apiKey ,
+  authDomain:process.env.REACT_APP_authDomain ,
+  projectId:process.env.REACT_APP_projectId ,
+  storageBucket:process.env.REACT_APP_storageBucket ,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId ,
+  appId:process.env.REACT_APP_appId ,
 };
 
 // Initialize Firebase
