@@ -1,4 +1,4 @@
-This is my project [Grocery Shop](https://wedding-ultra-shots.web.app/)
+This is my project [Grocery Shop](https://grocery-shop-4df4d.web.app/)
 ## Grocery Shop
 - Homepage with Navbar
 - Manage Inventory page
