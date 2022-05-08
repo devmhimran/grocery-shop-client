@@ -34,7 +34,7 @@ const Inventory = () => {
                 const dataQuantity = quantity;
                 const totalQuantity = parseInt(inputQuantity) + parseInt(dataQuantity);
                 const updateQuantity = { quantity: totalQuantity }
-                fetch(`http://localhost:5000/update/${id}`, {
+                fetch(`https://gentle-plateau-17754.herokuapp.com/update/${id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -113,7 +113,7 @@ const Inventory = () => {
                                 <div className="inventory__update__button d-inline">
                                     <div className="product__update__main d-inline">
                                         <form onSubmit={handleQuantityUpdate}  className="d-inline">
-                                            <input className='grocery__quantity' type="number" name="quantity" min="0" onKeyPress={preventMinus} />
+                                            <input className='grocery__quantity' type="number" name="quantity" min="0" onKeyPress={preventMinus} placeholder="Qty"/>
                                             <button className='grocery__quantity__button mx-2'>Update</button>
                                         </form>
                                         <button className='grocery__quantity__button' onClick={handleDeliver}>Delivered</button>
