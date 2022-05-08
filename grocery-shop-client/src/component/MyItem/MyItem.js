@@ -26,7 +26,7 @@ const MyItem = () => {
     const handleProductDelete = (id) => {
         const proceed = window.confirm('Are your sure?');
         if (proceed) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://gentle-plateau-17754.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

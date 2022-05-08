@@ -24,7 +24,7 @@ const AddItem = () => {
             alert('Please enter quantity correctly!')
         } else {
             const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName, userId };
-            fetch('http://localhost:5000/inventory', {
+            fetch('https://gentle-plateau-17754.herokuapp.com/inventory', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

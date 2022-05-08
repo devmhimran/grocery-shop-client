@@ -10,7 +10,7 @@ const Inventory = () => {
     const [product, setProduct] = useState([]);
     const { _id, name, image, shortDescription, price, quantity, unit, supplierName } = product;
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory/${id}`)
+        fetch(`https://gentle-plateau-17754.herokuapp.com/inventory/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -72,7 +72,7 @@ const Inventory = () => {
             if(isProceed){
                 quantityNow = quantityNow - 1;
                 const newQuantity = { quantity: quantityNow }
-              fetch(`http://localhost:5000/update/${id}`, {
+              fetch(`https://gentle-plateau-17754.herokuapp.com/update/${id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
