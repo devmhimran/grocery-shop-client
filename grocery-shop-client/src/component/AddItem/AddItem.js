@@ -17,20 +17,26 @@ const AddItem = () => {
         const unit = e.target.unit.value;
         const supplierName = e.target.supplierName.value;
 
-        
-        const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName, userId };
-        fetch('http://localhost:5000/inventory', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(addProductData)
-        }).then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-        e.target.reset();
-        toast.success('Successfully Added!')
+
+        if (price <= 0) {
+            alert('Please enter price correctly!')
+        } else if (quantity <= 0) {
+            alert('Please enter quantity correctly!')
+        } else {
+            const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName, userId };
+            fetch('http://localhost:5000/inventory', {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(addProductData)
+            }).then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+            e.target.reset();
+            toast.success('Successfully Added!')
+        }
     }
 
     return (
@@ -42,38 +48,33 @@ const AddItem = () => {
                         <form onSubmit={handleAddItem}>
                             <div className="input__form">
                                 <p className='py-2'>Product Name</p>
-                                <input type="text" name="name" placeholder='Enter Product Name' />
+                                <input type="text" name="name" placeholder='Enter Product Name' required />
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Enter Image URL</p>
-                                <input type="text" name="image" placeholder='Enter Image URL' />
-                                <small className='text-danger'></small>
+                                <input type="text" name="image" placeholder='Enter Image URL' required />
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Short Description</p>
-                                <textarea name="shortDescription" cols="42" rows="5"></textarea>
-                                <small className='text-danger'></small>
+                                <textarea name="shortDescription" cols="42" rows="5" required></textarea>
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Price</p>
-                                <input type="number" name="price" placeholder='Enter Price' />
-                                <small className='text-danger'></small>
+                                <input type="number" name="price" placeholder='Enter Price' required />
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Quantity</p>
                                 <div className="input__form__main  d-flex">
-                                    <input className='m-2' type="number" name="quantity" placeholder='Enter Quantity' />
+                                    <input className='m-2' type="number" name="quantity" placeholder='Enter Quantity' required />
                                     <select name="unit">
                                         <option value="Kg">Kg</option>
                                         <option value="Pcs">Pcs</option>
                                     </select>
                                 </div>
-                                <small className='text-danger'></small>
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Supplier Name</p>
-                                <input type="text" name="supplierName" placeholder='Enter Supplier Name' />
-                                <small className='text-danger'></small>
+                                <input type="text" name="supplierName" placeholder='Enter Supplier Name' required />
                             </div>
                             <button className='login__btn mt-3'>Add</button>
                         </form>
