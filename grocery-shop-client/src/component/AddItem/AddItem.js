@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast, { Toaster } from 'react-hot-toast';
 import auth from '../firebase.init';
 import './AddItem.css';
 
@@ -12,21 +13,23 @@ const AddItem = () => {
         const shortDescription = e.target.shortDescription.value;
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
+        const unit = e.target.unit.value;
         const supplierName = e.target.supplierName.value;
 
 
-        const addProductData = {name, image, shortDescription, price, quantity, supplierName};
-        fetch('http://localhost:5000/service', {
+        const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName };
+        fetch('http://localhost:5000/products', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(addProductData)
-        })
-            .then(res => res.json())
+        }).then(res => res.json())
             .then(data => {
                 console.log(data);
             })
+        e.target.reset();
+        toast.success('Successfully Addedd!')
     }
 
     return (
@@ -75,6 +78,10 @@ const AddItem = () => {
                         </form>
                     </div>
                 </div>
+                <Toaster
+                    position="top-center"
+                    reverseOrder={false}
+                />
             </div>
         </div>
     );
