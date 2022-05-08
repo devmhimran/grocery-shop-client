@@ -5,8 +5,10 @@ import { BsTruck } from 'react-icons/bs';
 import { IoIosTimer } from 'react-icons/io';
 import { BiSupport } from 'react-icons/bi';
 import AboutUs from '../../assets/img/Grocery/grocery_about_us.png';
+import useProducts from '../Hooks/useProducts';
 
 const Home = () => {
+    const [products, setProducts] = useProducts();
     return (
         <div className='home__main'>
             <div className="hero__banner container">
@@ -52,6 +54,16 @@ const Home = () => {
                             <h3>Support</h3>
                             <p>24/7 Support from online</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="manage__Inventory">
+                <h1 className='text-center'>Manage Inventory</h1>
+                <div className="row">
+                    <div className="col-lg-4 col-md-6 col-sm-12">
+                        {
+                            products.map(productData => <li>{productData.name}</li>)
+                        }
                     </div>
                 </div>
             </div>
