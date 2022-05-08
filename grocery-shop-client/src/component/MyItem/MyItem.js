@@ -5,6 +5,8 @@ import useProducts from '../Hooks/useProducts';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import { RiEditBoxLine } from 'react-icons/ri';
+import { BsTrash } from 'react-icons/bs';
 
 const MyItem = () => {
     const [products, setProducts] = useProducts([]);
@@ -21,13 +23,13 @@ const MyItem = () => {
         const proceed = window.confirm('Are your sure?');
         if (proceed) {
 
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `http://localhost:5000/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remaining = products.filter(data => data.userId !== userId);
+                    const remaining = productSaveData.filter(data => data.userId !== id);
                     setProducts(remaining);
                     console.log(data);
                 })
@@ -48,13 +50,13 @@ const MyItem = () => {
                     <tbody>
                         {
                             productSaveData.map(data =>  
-                            <tr>
+                            <tr key={data._id}>
                                 <td>{data.name}</td>
                                 <td>BDT {data.price} /-</td>
                                 <td>{data.quantity} {data.unit}</td>
                                 <td>
-                                    <button className='btn btn-warning btn-sm mx-2' onClick={()=>handleProductUpdate(data._id)}>Update</button>    
-                                    <button className='btn btn-danger btn-sm mx-2' onClick={()=>handleProductDelete(data._id)}>Delete</button>    
+                                    <button className='btn btn-warning btn-sm mx-2' onClick={()=>handleProductUpdate(data._id)}><RiEditBoxLine/></button>    
+                                    <button className='btn btn-danger btn-sm mx-2' onClick={()=>handleProductDelete(data._id)}><BsTrash/></button>    
                                 </td>
                             </tr>)
                         }
