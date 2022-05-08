@@ -3,7 +3,10 @@ import './Product.css';
 
 const Products = (props) => {
     const { _id, name, image, shortDescription, price, quantity, unit, supplierName } = props.products;
-    console.log(props.products.name)
+    
+    const handleProductDetail =(id) =>{
+        console.log(id)
+    }
     return (
         <div className="col-lg-4 col-md-6 col-sm-12">
             <div className='card product__card'>
@@ -20,7 +23,7 @@ const Products = (props) => {
                         <p className='product__supplier my-2'>Supplier: {supplierName}</p>
                         <p className='product__description'>{shortDescription.slice(0, 85)}</p>
                     </div>
-                    <button className='product__btn mt-4'>View Detail</button>
+                    <button className='product__btn mt-4' onClick={()=>handleProductDetail(_id)}>View Detail</button>
                 </div>
             </div>
         </div>
