@@ -11,7 +11,6 @@ import { BsTrash } from 'react-icons/bs';
 const MyItem = () => {
     // const [products, setProducts] = useProducts([]);
     const [inventory, setInventory] = useState([]);
-    console.log(inventory);
     const [user] = useAuthState(auth);
     const userId = user.uid;
     useEffect(() => {

@@ -1,11 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../firebase.init';
+import useProducts from '../Hooks/useProducts';
+import { RiEditBoxLine } from 'react-icons/ri';
+import { BsTrash } from 'react-icons/bs';
 
 const ManageItems = () => {
-    return (
-        <div>
-            <h1>Manage Items</h1>
-        </div>
-    );
+   const [products, setProducts] = useProducts([]);
+   const navigate = useNavigate();
+   const handleProductUpdate = (id) => {
+       navigate(`/inventory/${id}`);
+   }
+   const handleDelete = (id) => {
+    const proceed = window.confirm('Are your sure?');
+    if (proceed) {
+
+        const url = `http://localhost:5000/inventory/${id}`;
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                const remainingService = products.filter(products => products._id !== id);
+                setProducts(remainingService);
+                console.log(data);
+            })
+    }
+}
+   return (
+       <div className='my__item'>
+           <div className="container">
+               <Table striped bordered hover>
+                   <thead>
+                       <tr>
+                           <th>Product Name</th>
+                           <th>Product Price</th>
+                           <th>Product Quantity</th>
+                           <th>Status</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       {
+                           products.map(data =>
+                               <tr key={data._id}>
+                                   <td>{data.name}</td>
+                                   <td>BDT {data.price} /-</td>
+                                   <td>{data.quantity} {data.unit}</td>
+                                   <td>
+                                       <button className='btn btn-warning btn-sm mx-2' onClick={() => handleProductUpdate(data._id)}><RiEditBoxLine /></button>
+                                       <button className='btn btn-danger btn-sm mx-2' onClick={() => handleDelete(data._id)}><BsTrash /></button>
+                                   </td>
+                               </tr>)
+                       }
+                   </tbody>
+               </Table>
+           </div>
+       </div>
+   );
 };
 
 export default ManageItems;
