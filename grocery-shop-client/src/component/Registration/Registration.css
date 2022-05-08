@@ -9,3 +9,9 @@
     border-radius: 25px !important;
     font-family: 'Poppins', sans-serif;
 }
+@media only screen and (max-width: 600px){
+    .registration__form__card{
+        width: 100%;
+        padding: 10px;
+    }
+}
