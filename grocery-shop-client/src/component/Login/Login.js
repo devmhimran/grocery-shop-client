@@ -12,7 +12,6 @@ const Login = () => {
     const navigate = useNavigate();
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     let loginError;
-    console.log(user);
     if (error) {
         loginError = error.message;
     }

@@ -7,7 +7,6 @@ import './AddItem.css';
 const AddItem = () => {
     const [user] = useAuthState(auth);
     const userId = user.uid;
-    console.log(user.uid);
     const handleAddItem = (e) => {
         e.preventDefault();
         const name = e.target.name.value;

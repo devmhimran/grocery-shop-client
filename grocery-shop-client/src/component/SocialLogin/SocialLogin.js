@@ -10,11 +10,10 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let loginError;
-    console.log(user);
     if (error) {
         loginError = error.message;
     }
-    let from = location.state?.from?.pathname || "/login";
+    let from = location.state?.from?.pathname || "/";
     if (user) {
         navigate(from, { replace: true });
     }

@@ -34,7 +34,6 @@ const Inventory = () => {
                 const dataQuantity = quantity;
                 const totalQuantity = parseInt(inputQuantity) + parseInt(dataQuantity);
                 const updateQuantity = { quantity: totalQuantity }
-                console.log(updateQuantity, typeof (updateQuantity))
                 fetch(`http://localhost:5000/update/${id}`, {
                     method: "PUT",
                     headers: {
