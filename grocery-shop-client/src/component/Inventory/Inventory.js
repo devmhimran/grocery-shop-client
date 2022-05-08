@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useProducts from '../Hooks/useProducts';
 import './Inventory.css';
 
@@ -21,26 +21,40 @@ const Inventory = () => {
     const handleQuantityUpdate = (e) => {
         e.preventDefault();
         const inputQuantity = e.target.quantity.value;
-        const inputQuantityParse  = parseInt(inputQuantity);
-        const dataQuantity = quantity;
-        const dataQuantityParse = parseInt(dataQuantity);
-        const totalQuantity = inputQuantityParse + dataQuantityParse;
-        // const productQuantity = quantityParse + inputQuantityParse;
-        console.log(totalQuantity, typeof(totalQuantity))
-
-        fetch(`http://localhost:5000/inventory/${id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(totalQuantity)
-        })
-            .then(res => res.json())
-            .then(data => {
-                alert('Are You Sure Update Data?')
-                toast.success('Successfully toasted!')
-                console.log(data);
+        if (inputQuantity <= 0) {
+            alert('Please Enter Some Quantity');
+            e.target.reset();
+        } else if (inputQuantity === '') {
+            alert('Please Enter Some Quantity');
+            e.target.reset()
+        } else {
+            const dataQuantity = quantity;
+            const totalQuantity = parseInt(inputQuantity) + parseInt(dataQuantity);
+            const updateQuantity = { quantity: totalQuantity }
+            console.log(updateQuantity, typeof (updateQuantity))
+            fetch(`http://localhost:5000/update/${id}`, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(updateQuantity)
             })
+                .then(res => res.json())
+                .then(data => {
+                   const isProceed = window.confirm('Are You Sure Update Data?');
+                   
+                   if(isProceed){
+                    window.location.reload();
+                   }
+                   alert('Added')
+                   toast.success('Successfully Updated!')
+                    console.log(data);
+                })
+            e.target.reset();
+            // location.reload(); 
+            
+        }
+
     }
 
     return (
@@ -60,13 +74,14 @@ const Inventory = () => {
                                 <p className='single__product__price'>BDT: {price}/-</p>
                                 <p className='single__product__quantity'>Quantity: {quantity} {unit}</p>
                                 <p className='single__product__supplierName'>{supplierName}</p>
-                                <div className="inventory__update__button d-flex">
-                                    <form onSubmit={handleQuantityUpdate}>
-                                        <input className='grocery__quantity' type="number" name="quantity" min="0" onKeyPress={preventMinus} />
-                                        <button className='grocery__quantity__button mx-2'>Update</button>
+                                <div className="inventory__update__button d-inline">
+                                    <div className="product__update__main">
+                                        <form onSubmit={handleQuantityUpdate}>
+                                            <input className='grocery__quantity' type="number" name="quantity" min="0" onKeyPress={preventMinus} />
+                                            <button className='grocery__quantity__button mx-2'>Update</button>
+                                        </form>
                                         <button className='grocery__quantity__button'>Delivered</button>
-                                    </form>
-
+                                    </div>
                                 </div>
 
                             </div>

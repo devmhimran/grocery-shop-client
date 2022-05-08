@@ -31,7 +31,7 @@ const AddItem = () => {
                 console.log(data);
             })
         e.target.reset();
-        toast.success('Successfully Addedd!')
+        toast.success('Successfully Added!')
     }
 
     return (
