@@ -1,0 +1,39 @@
+.single__product{
+    padding: 80px 0;
+}
+.single__product__card,
+.product__description .card{
+    border-radius: 30px !important;
+}
+.single__product__card__body{
+    padding: 40px;
+}
+.single__product__image__container{
+    width: 100%;
+    overflow: hidden;
+}
+.single__product__image{
+    width: 90%;
+    transition: 0.4s;
+}
+.single__product__image:hover{
+    transform: scale(1.2);
+}
+.product__detail{
+    font-family: 'Poppins', sans-serif;
+}
+.single__product__price,
+.single__product__quantity,
+.single__product__supplierName{
+    font-size: 22px;
+    line-height: 42px;
+}
+.single__product__supplierName{
+    font-weight: 600;
+}
+.single__product__description{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 32px;
+    color: grey;
+}

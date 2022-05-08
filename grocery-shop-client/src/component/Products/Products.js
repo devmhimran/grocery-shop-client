@@ -25,7 +25,7 @@ const Products = (props) => {
                         <p className='product__supplier my-2'>Supplier: {supplierName}</p>
                         <p className='product__description'>{shortDescription.slice(0, 85)}</p>
                     </div>
-                    <button className='product__btn mt-4' onClick={()=>handleProductDetail(_id)}>View Detail</button>
+                    <button className='product__btn mt-4' onClick={()=>handleProductDetail(_id)}>Update</button>
                 </div>
             </div>
         </div>
