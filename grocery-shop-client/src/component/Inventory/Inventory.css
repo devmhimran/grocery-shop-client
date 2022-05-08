@@ -37,3 +37,24 @@
     line-height: 32px;
     color: grey;
 }
+.grocery__quantity__button{
+    padding: 10px 25px;
+    background-color: #7eb23d;
+    color: #fff;
+    border: 1px solid #7eb23d;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: 0.4s;
+    box-shadow: 9px 16px 23px 6px rgb(126 178 61 / 26%);
+}
+.grocery__quantity__button:hover{
+    background-color: #fff;
+    color: #7eb23d;
+}
+
+.grocery__quantity{
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #7eb23d;
+    border-radius: 20px;
+}
