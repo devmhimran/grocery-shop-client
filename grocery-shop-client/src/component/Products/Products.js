@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Product.css';
 
 const Products = (props) => {
     const { _id, name, image, shortDescription, price, quantity, unit, supplierName } = props.products;
+    const navigate = useNavigate();
     const handleProductDetail =(id) =>{
-        console.log(id)
+        navigate(`/inventory/${id}`);
+
     }
     return (
         <div className="col-lg-4 col-md-6 col-sm-12">
