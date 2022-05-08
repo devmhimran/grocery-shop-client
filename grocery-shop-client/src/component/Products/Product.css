@@ -1,6 +1,8 @@
 .product__card{
     border-radius: 15px !important;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
 }
 
 .product__image__container{
@@ -15,4 +17,21 @@
 }
 .product__image:hover{
     transform: scale(1.1);
+}
+.product__price{
+    font-size: 18px;
+}
+.product__btn{
+    padding: 10px 32px;
+    background-color: #7eb23d;
+    color: #fff;
+    border: 1px solid #7eb23d;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: 0.4s;
+    box-shadow: 9px 16px 23px 6px rgb(126 178 61 / 26%);
+}
+.product__btn:hover{
+    background-color: #fff;
+    color: #7eb23d;
 }

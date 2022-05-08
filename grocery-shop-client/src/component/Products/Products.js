@@ -11,10 +11,16 @@ const Products = (props) => {
                     <div className="product__image__container">
                         <img className='product__image' src={image} alt="" />
                     </div>
-                    <div className="product__detail">
-
-                        <h3>{name}</h3>
+                    <div className="product__detail mt-4">
+                        <h4 className='product__name'>{name}</h4>
+                        <div className="product__sub__description d-flex justify-content-between">
+                            <p className='product__price'>BDT {price} /-</p>
+                            <p className='product__quantity'>{quantity} {unit}</p> 
+                        </div>
+                        <p className='product__supplier my-2'>Supplier: {supplierName}</p>
+                        <p className='product__description'>{shortDescription.slice(0, 85)}</p>
                     </div>
+                    <button className='product__btn mt-4'>View Detail</button>
                 </div>
             </div>
         </div>
