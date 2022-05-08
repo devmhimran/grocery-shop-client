@@ -35,7 +35,7 @@ const MyItem = () => {
                 .then(data => {
                     const remainingProduct = inventory.filter(inventory => inventory._id !== id);
                     setInventory(remainingProduct);
-                   console.log(data)
+                    console.log(data)
                 })
         }
     }
@@ -64,8 +64,6 @@ const MyItem = () => {
                                     </td>
                                 </tr>)
                         }
-
-
                     </tbody>
                 </Table>
             </div>
