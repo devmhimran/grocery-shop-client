@@ -70,8 +70,8 @@ const Home = () => {
                 </div>
             </div>
             <div className="about__us container">
-                <div className="row g-5">
-                    <div className="col-lg-6 col-md-12 col-sm-12">
+                <div className="row g-4">
+                    <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
                         <img className='about__us__img' src={AboutUs} alt="" />
                     </div>
                     <div className="col-lg-6 col-md-12 col-sm-12 d-flex align-items-center">

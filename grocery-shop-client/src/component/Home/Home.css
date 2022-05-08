@@ -78,3 +78,42 @@
     font-family: 'Poppins', sans-serif;
     color: #54595f;
 }
+@media only screen and (max-width: 600px) {
+    .hero__banner{
+        padding: 60px 0;
+    }
+    .hero__detail h1{
+        font-size: 48px;
+        line-height: 56px;
+    }
+    .site__info{
+        padding: 30px;
+    }
+    .site__info__detail{
+        margin: 15px 30px;
+    }
+    .manage__Inventory{
+        padding: 60px 0;
+    }
+    .grocery__btn{
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+    .hero__detail p{
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .about__us__img {
+        width: 300px;
+    }
+    .about__use__detail{
+        text-align: center;
+    }
+    .about__use__detail h2, .manage__Inventory h1{
+        font-size: 42px;
+    }
+    .about__use__detail p{
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
