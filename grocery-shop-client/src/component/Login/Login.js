@@ -34,11 +34,11 @@ const Login = () => {
                         <form onSubmit={handleLogin}>
                             <div className="input__form">
                                 <p className='py-2'>Enter Email</p>
-                                <input type="email" name="email" placeholder='Enter Your Email' />
+                                <input type="email" name="email" placeholder='Enter Your Email' required/>
                             </div>
                             <div className="input__form">
                                 <p className='py-2'>Enter Password</p>
-                                <input type="password" name="password" placeholder='Enter Your Password' />
+                                <input type="password" name="password" placeholder='Enter Your Password' required/>
                                 <small className='text-danger'>{loginError}</small>
                             </div>
                             <button className='login__btn mt-3'>Sign in</button>
