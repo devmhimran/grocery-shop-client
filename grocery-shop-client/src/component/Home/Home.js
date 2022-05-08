@@ -6,6 +6,7 @@ import { IoIosTimer } from 'react-icons/io';
 import { BiSupport } from 'react-icons/bi';
 import AboutUs from '../../assets/img/Grocery/grocery_about_us.png';
 import useProducts from '../Hooks/useProducts';
+import Products from '../Products/Products';
 
 const Home = () => {
     const [products, setProducts] = useProducts();
@@ -59,11 +60,12 @@ const Home = () => {
             </div>
             <div className="manage__Inventory">
                 <h1 className='text-center'>Manage Inventory</h1>
-                <div className="row">
-                    <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="container">
+                    <div className="row mt-5 g-3">
                         {
-                            products.map(productData => <li>{productData.name}</li>)
+                            products.map(productData => <Products key={productData._id} products={productData}></Products>)
                         }
+
                     </div>
                 </div>
             </div>
@@ -78,9 +80,9 @@ const Home = () => {
                             <p>No man can live without food, and for our daily food, buying grocery items is a must. Buying fish, vegetables, eggs, meat, beef, etc. is a must for cooking regular food. We all have to go to local markets to buy these food and grocery items. In this age of business people do not find enough time to buy foods and groceries from local markets.
 
                                 So either they choose their servants or go for super shops. Servants often fail to purchase quality products and shopping in super shops is very expensive.</p>
-                                <button className='grocery__btn mt-4'>Contact Us</button>
+                            <button className='grocery__btn mt-4'>Contact Us</button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
