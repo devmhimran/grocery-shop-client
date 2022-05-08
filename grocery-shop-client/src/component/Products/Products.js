@@ -3,7 +3,6 @@ import './Product.css';
 
 const Products = (props) => {
     const { _id, name, image, shortDescription, price, quantity, unit, supplierName } = props.products;
-    
     const handleProductDetail =(id) =>{
         console.log(id)
     }

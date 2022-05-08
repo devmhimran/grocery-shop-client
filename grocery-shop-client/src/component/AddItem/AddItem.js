@@ -6,6 +6,8 @@ import './AddItem.css';
 
 const AddItem = () => {
     const [user] = useAuthState(auth);
+    const userId = user.uid;
+    console.log(user.uid);
     const handleAddItem = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -16,8 +18,8 @@ const AddItem = () => {
         const unit = e.target.unit.value;
         const supplierName = e.target.supplierName.value;
 
-
-        const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName };
+        
+        const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName, userId };
         fetch('http://localhost:5000/products', {
             method: "POST",
             headers: {
