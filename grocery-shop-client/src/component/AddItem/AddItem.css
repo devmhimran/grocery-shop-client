@@ -12,7 +12,7 @@
 .input__form{
     padding: 10px 0;
 }
-.input__form input,.input__form textarea{
+.input__form input,.input__form textarea,select{
     width: 100%;
     padding: 12px;
     border: 1px solid #7eb23d;
