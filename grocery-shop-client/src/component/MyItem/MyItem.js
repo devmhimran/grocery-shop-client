@@ -65,6 +65,9 @@ const MyItem = () => {
                         }
                     </tbody>
                 </Table>
+                <div className="manage__Inventory__button d-flex justify-content-center">
+                    <button className='grocery__btn__second' onClick={() => navigate('/additem')}>Add Item</button>
+                </div>
             </div>
         </div>
     );

@@ -78,6 +78,22 @@
     font-family: 'Poppins', sans-serif;
     color: #54595f;
 }
+.manage__Inventory__button{
+    margin-top: 50px;
+}
+.grocery__btn__second{
+    padding: 8px 28px;
+    background-color: #7eb23d;
+    color: #fff;
+    border: 1px solid #7eb23d;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+.grocery__btn__second:hover{
+    background-color: #fff;
+    color: #7eb23d;
+}
 @media only screen and (max-width: 600px) {
     .hero__banner{
         padding: 60px 0;

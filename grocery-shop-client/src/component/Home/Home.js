@@ -7,9 +7,11 @@ import { BiSupport } from 'react-icons/bi';
 import AboutUs from '../../assets/img/Grocery/grocery_about_us.png';
 import useProducts from '../Hooks/useProducts';
 import Products from '../Products/Products';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [products, setProducts] = useProducts();
+    const navigate = useNavigate();
     return (
         <div className='home__main'>
             <div className="hero__banner container">
@@ -66,6 +68,9 @@ const Home = () => {
                             products.slice(0,6).map(productData => <Products key={productData._id} products={productData}></Products>)
                         }
 
+                    </div>
+                    <div className="manage__Inventory__button d-flex justify-content-center">
+                        <button className='grocery__btn__second' onClick={()=> navigate('/manageinventory')}>Manage Inventory</button>
                     </div>
                 </div>
             </div>
