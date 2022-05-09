@@ -12,12 +12,16 @@ const MyItem = () => {
     // const [products, setProducts] = useProducts([]);
     const [inventory, setInventory] = useState([]);
     const [user] = useAuthState(auth);
-    const userId = user.uid;
+    const userEmail = user.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/myitem?userId=${userId}`)
+        fetch(`http://localhost:5000/myitem?userEmail=${userEmail}`, {
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setInventory(data))
-    }, [userId]);
+    }, [userEmail]);
 
     const navigate = useNavigate();
     const handleProductUpdate = (id) => {

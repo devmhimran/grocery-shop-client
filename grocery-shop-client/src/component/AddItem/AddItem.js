@@ -6,7 +6,7 @@ import './AddItem.css';
 
 const AddItem = () => {
     const [user] = useAuthState(auth);
-    const userId = user.uid;
+    const userEmail = user.email;
     const handleAddItem = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -23,7 +23,7 @@ const AddItem = () => {
         } else if (quantity <= 0) {
             alert('Please enter quantity correctly!')
         } else {
-            const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName, userId };
+            const addProductData = { name, image, shortDescription, price, quantity, unit, supplierName, userEmail };
             fetch('https://gentle-plateau-17754.herokuapp.com/inventory', {
                 method: "POST",
                 headers: {
