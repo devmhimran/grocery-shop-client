@@ -6,6 +6,7 @@ import { ImFacebook2 } from 'react-icons/im';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import auth from '../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import axios from 'axios';
 
 const Login = () => {
     const location = useLocation();
@@ -17,13 +18,17 @@ const Login = () => {
     }
     let from = location.state?.from?.pathname || "/";
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('', {email});
+        localStorage.setItem('access-token', data.accessToken);
+        navigate(from, { replace: true });
+        console.log(data)
     }
     return (
         <div className='login__main'>
