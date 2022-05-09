@@ -12,16 +12,12 @@ const MyItem = () => {
     // const [products, setProducts] = useProducts([]);
     const [inventory, setInventory] = useState([]);
     const [user] = useAuthState(auth);
-    const userEmail = user.email;
+    const userId = user.uid;
     useEffect(() => {
-        fetch(`http://localhost:5000/myitem?userEmail=${userEmail}`, {
-            headers:{
-                authorization: `Bearer ${localStorage.getItem('access-token')}`
-            }
-        })
+        fetch(`https://gentle-plateau-17754.herokuapp.com/myitem?userId=${userId}`)
             .then(res => res.json())
             .then(data => setInventory(data))
-    }, [userEmail]);
+    }, [userId]);
 
     const navigate = useNavigate();
     const handleProductUpdate = (id) => {

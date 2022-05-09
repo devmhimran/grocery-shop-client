@@ -21,7 +21,6 @@ const SocialLogin = () => {
         signInWithGoogle();
     }
     return (
-
         <div>
             <div className="social__login d-flex justify-content-between">
                 <button className='google__signin' onClick={handleSocial}><span><FcGoogle></FcGoogle></span> Google</button>

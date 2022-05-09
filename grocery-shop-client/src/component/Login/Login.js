@@ -5,13 +5,11 @@ import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import auth from '../firebase.init';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import axios from 'axios';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const [user1] = useAuthState(auth);
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     let loginError;
     if (error) {
@@ -19,21 +17,13 @@ const Login = () => {
     }
     let from = location.state?.from?.pathname || "/";
     if (user) {
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
     }
-    
-    const handleLogin = async (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        // const userId = user1.uid;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        
-        await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('http://localhost:5000/login', {email});
-        localStorage.setItem('access-token', data.accessToken);
-        navigate(from, { replace: true });
-        // console.log(data)
-        console.log(user1)
+        signInWithEmailAndPassword(email, password);
     }
     return (
         <div className='login__main'>
