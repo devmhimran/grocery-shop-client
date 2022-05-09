@@ -7,7 +7,7 @@ This is my project [Grocery Shop](https://grocery-shop-4df4d.web.app/)
 - Add Item page
 - My Item Page
 - Blog Page
--User Signin option
+- User Signin option
 
 ##Technology used
 - Js, Css,React Bootstrap, React Router, Firebase Hook, React Icon, Firebase, React Hot Toastify, MongoDB, React Spinner
