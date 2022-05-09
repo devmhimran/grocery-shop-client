@@ -108,7 +108,7 @@ const Inventory = () => {
                                 <small>Id: {_id}</small>
                                 <h1 className='single__product__name'>{name}</h1>
                                 <p className='single__product__price'>BDT: {price}/-<small className='pricing__quantity'>Per {unit}</small></p>
-                                <p className='single__product__quantity'>Quantity: {quantity} {unit}</p>
+                                <p className='single__product__quantity'>Stock Quantity: {quantity} {unit}</p>
                                 <p className='single__product__supplierName'>{supplierName}</p>
                                 <div className="inventory__update__button d-inline">
                                     <div className="product__update__main d-inline">
