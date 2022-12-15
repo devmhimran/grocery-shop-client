@@ -10,7 +10,7 @@ const Inventory = () => {
     const [product, setProduct] = useState([]);
     const { _id, name, image, shortDescription, price, quantity, unit, supplierName } = product;
     useEffect(() => {
-        fetch(`https://gentle-plateau-17754.herokuapp.com/inventory/${id}`)
+        fetch(`https://grocery-shop-server-devmhimran.vercel.app/inventory/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -34,7 +34,7 @@ const Inventory = () => {
                 const dataQuantity = quantity;
                 const totalQuantity = parseInt(inputQuantity) + parseInt(dataQuantity);
                 const updateQuantity = { quantity: totalQuantity }
-                fetch(`https://gentle-plateau-17754.herokuapp.com/update/${id}`, {
+                fetch(`https://grocery-shop-server-devmhimran.vercel.app/update/${id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -72,7 +72,7 @@ const Inventory = () => {
             if(isProceed){
                 quantityNow = quantityNow - 1;
                 const newQuantity = { quantity: quantityNow }
-              fetch(`https://gentle-plateau-17754.herokuapp.com/update/${id}`, {
+              fetch(`https://grocery-shop-server-devmhimran.vercel.app/update/${id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"

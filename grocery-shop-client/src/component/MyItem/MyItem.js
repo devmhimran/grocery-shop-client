@@ -14,7 +14,7 @@ const MyItem = () => {
     const [user] = useAuthState(auth);
     const userId = user.uid;
     useEffect(() => {
-        fetch(`https://gentle-plateau-17754.herokuapp.com/myitem?userId=${userId}`)
+        fetch(`https://grocery-shop-server-devmhimran.vercel.app/myitem?userId=${userId}`)
             .then(res => res.json())
             .then(data => setInventory(data))
     }, [userId]);
@@ -26,7 +26,7 @@ const MyItem = () => {
     const handleProductDelete = (id) => {
         const proceed = window.confirm('Are your sure?');
         if (proceed) {
-            const url = `https://gentle-plateau-17754.herokuapp.com/inventory/${id}`;
+            const url = `https://grocery-shop-server-devmhimran.vercel.app/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

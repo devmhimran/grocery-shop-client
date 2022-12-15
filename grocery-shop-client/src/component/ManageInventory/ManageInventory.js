@@ -13,7 +13,7 @@ const ManageInventory = () => {
         const proceed = window.confirm('Are your sure?');
         if (proceed) {
     
-            const url = `https://gentle-plateau-17754.herokuapp.com/inventory/${id}`;
+            const url = `https://grocery-shop-server-devmhimran.vercel.app/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
